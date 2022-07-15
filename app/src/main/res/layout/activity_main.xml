@@ -1,11 +1,248 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/background">
 
-    <!-- Место для верстки -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/buttonBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        android:layout_marginStart="24dp"
+        android:src="@drawable/icon_back"
+        android:contentDescription="@string/buttonBackDesc"
+        app:backgroundTint="@color/floatingButtonColor"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/buttonOption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="24dp"
+        android:contentDescription="@string/buttonOptionDesc"
+        android:src="@drawable/icon_option"
+        app:backgroundTint="@color/floatingButtonColor"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ScrollView
+        android:id="@+id/scroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- images -->
+            <ImageView
+                android:id="@+id/imageApp"
+                android:layout_width="match_parent"
+                android:layout_height="354dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="-16dp"
+                android:scaleType="centerCrop"
+                android:contentDescription="@string/imageAppDesc"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <ImageView
+                android:id="@+id/iconApp"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_marginTop="-32dp"
+                android:scaleType="centerCrop"
+                android:contentDescription="@string/iconAppDesc"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageApp" />
+
+            <!-- upper info about application -->
+            <TextView
+                android:id="@+id/nameApp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="48dp"
+                android:layout_marginStart="-12dp"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.03"
+                app:layout_constraintTop_toTopOf="@+id/iconApp"
+                app:layout_constraintStart_toEndOf="@id/iconApp" />
+
+            <RatingBar
+                android:id="@+id/ratingAppUpper"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:progressTint="@color/ratingColor"
+                android:max="5"
+                app:layout_constraintStart_toStartOf="@+id/nameApp"
+                app:layout_constraintTop_toBottomOf="@+id/nameApp"
+                style="@style/Base.Widget.AppCompat.RatingBar.Small" />
+
+            <TextView
+                android:id="@+id/gradeCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginBottom="-2dp"
+                android:textColor="@color/gradeColor"
+                app:layout_constraintBottom_toBottomOf="@+id/ratingAppUpper"
+                app:layout_constraintStart_toEndOf="@+id/ratingAppUpper" />
+
+            <!-- upper buttons -->
+            <com.nex3z.flowlayout.FlowLayout
+                android:id="@+id/tagsList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-8dp"
+                android:layout_marginStart="19dp"
+                android:layout_marginEnd="19dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/iconApp"
+                app:layout_constraintEnd_toEndOf="parent">
+
+            </com.nex3z.flowlayout.FlowLayout>
+
+            <!-- rating and info about application -->
+            <TextView
+                android:id="@+id/descApp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginEnd="24dp"
+                android:textColor="@color/descTextColor"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tagsList"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <TextView
+                android:id="@+id/reviewRatings"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginStart="24dp"
+                android:text="@string/reviewRatings"
+                android:textColor="@color/reviewRatingsColor"
+                android:textSize="20sp"
+                android:letterSpacing="0.04"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/descApp" />
+
+            <TextView
+                android:id="@+id/digitRating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="12dp"
+                android:textColor="@color/white"
+                android:textSize="48sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/reviewRatings" />
+
+            <RatingBar
+                android:id="@+id/ratingApp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:layout_marginStart="16dp"
+                android:progressTint="@color/ratingColor"
+                android:max="5"
+                app:layout_constraintTop_toBottomOf="@+id/reviewRatings"
+                app:layout_constraintStart_toEndOf="@+id/digitRating"
+                style="@style/Base.Widget.AppCompat.RatingBar.Small" />
+
+            <TextView
+                android:id="@+id/reviewGradeCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:textColor="@color/reviewRatingsColor"
+                android:textSize="12sp"
+                android:letterSpacing="0.04"
+                app:layout_constraintStart_toStartOf="@+id/ratingApp"
+                app:layout_constraintTop_toBottomOf="@+id/ratingApp" />
+
+            <ImageView
+                android:id="@+id/underline"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="38dp"
+                android:layout_marginEnd="38dp"
+                android:background="@color/underlineColor"
+                android:contentDescription="@null"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/digitRating"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <!-- reviews -->
+            <LinearLayout
+                android:id="@+id/reviewsList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/underline">
+
+            </LinearLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="124dp"
+                app:layout_constraintTop_toBottomOf="@id/reviewsList" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <!-- button -->
+    <Button
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginBottom="36dp"
+        android:layout_marginEnd="24dp"
+        android:textColor="@color/background"
+        android:textSize="20sp"
+        android:background="@drawable/button_drawable"
+        app:cornerRadius="12dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!--<View
+        android:id="@+id/rectangle_install"
+        android:layout_width="327dp"
+        android:layout_height="64dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="872dp"
+        android:background="@drawable/rectangle_install" />
+    <View
+        android:id="@+id/rectangle_install_shadow"
+        android:layout_width="311dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="32dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="892dp"
+        android:background="@drawable/rectangle_install_shadow" />
+    <TextView
+        android:id="@+id/install"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="158dp"
+        android:layout_marginTop="892dp"
+        android:gravity="top"
+        android:text="@string/install"
+        android:textAppearance="@style/install" />-->
 </androidx.constraintlayout.widget.ConstraintLayout>
